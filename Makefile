@@ -5,9 +5,9 @@
 # contains $(TARGET_DIR), which is not set outside the
 # Buildroot environment.
 
-#BR2 = ../buildroot-2022.05.1
-#CC = $(BR2)/output/host/bin/arm-buildroot-linux-gnueabihf-gcc
-#LDFLAGS = -L $(BR2)/output/target/usr/lib
+# BR2 = /path/to/buildroot-x.y.z
+# CC = $(BR2)/output/host/bin/arm-buildroot-linux-gnueabihf-gcc
+# LDFLAGS = -L$(BR2)/output/target/usr/lib
 
 LDFLAGS = -L$(TARGET_DIR)/usr/lib
 LDLIBS = -lVE -lvencoder -lMemAdapter
