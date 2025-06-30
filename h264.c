@@ -31,14 +31,14 @@ int h264_init(int width, int height, int fps) {
 
 	VencH264Param h264Param = {
 		.bEntropyCodingCABAC = 1,
-		.nBitrate = 0.4 * 1024 * 1024,
+		.nBitrate = 8 * 1024 * 1024,
 		.nFramerate = g_fps,
-		.nCodingMode = VENC_FRAME_CODING,	//VENC_FIELD_CODING         VENC_FRAME_CODING
-		.nMaxKeyInterval = g_fps,
-		.sProfileLevel.nProfile = VENC_H264ProfileMain,//VENC_H264ProfileBaseline	VENC_H264ProfileMain   VENC_H264ProfileHigh
-		.sProfileLevel.nLevel = VENC_H264Level32,
-		.sQPRange.nMinqp = 20,
-		.sQPRange.nMaxqp = 50,
+		.nCodingMode = VENC_FRAME_CODING,
+		.nMaxKeyInterval = 30,
+		.sProfileLevel.nProfile = VENC_H264ProfileHigh,
+		.sProfileLevel.nLevel = VENC_H264Level42,
+		.sQPRange.nMinqp = 10,
+		.sQPRange.nMaxqp = 30,
 	};
 
 	CLEAR(baseConfig);
