@@ -22,7 +22,7 @@
 #include "conf.h"
 
 static int fd = -1;
-static int g_width = 1920, g_height = 1080, g_fps = G_FPS;
+static int g_width = 1600, g_height = 1200, g_fps = G_FPS;
 static int g_buf_count = G_BUF_COUNT;
 static int buf_idx = 0;
 static buffer_t *buffers = NULL;
