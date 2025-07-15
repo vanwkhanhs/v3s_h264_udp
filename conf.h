@@ -11,8 +11,8 @@
 #define ENABLE_SAVE 0
 
 #define G_BUF_COUNT 5
-#define G_WIDTH 1920
-#define G_HEIGHT 1080
+#define G_WIDTH 1600
+#define G_HEIGHT 1200
 #define G_V4L2_PIX_FMT V4L2_PIX_FMT_NV12
 #define G_FPS 30
 #define G_SUBDEV_ENTITY_NAME "ov5640 1-003c"
