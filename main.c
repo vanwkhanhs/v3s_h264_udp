@@ -69,9 +69,7 @@ int main(int argc, char **argv) {
 		return 0;
 	}
 
-	if ((width == 640 && height == 480) ||
-		(width == 1280 && height == 720) ||
-		(width == 1920 && height == 1080)) {
+	if (width > 0 && height > 0 && fps > 0) {
 
 		dlog_cleanup(h264_init(width, height, fps), DLOG_CRIT "Error: h264_init() failed\n");
 		dlog_cleanup(cam_open(), DLOG_CRIT "Error: cam_open() failed\n");
