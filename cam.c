@@ -179,8 +179,8 @@ static int cam_media_init() {
 	}
 
 	
-	dlog("Info: %s: frame rate: requested for %d; image sensor accepted %d\n",
-		G_SUBDEV_ENTITY_NAME, g_fps, ival.interval.denominator);
+	// dlog("Info: %s: frame rate: requested for %d; image sensor accepted %d\n",
+	// 	G_SUBDEV_ENTITY_NAME, g_fps, ival.interval.denominator);
 
 cleanup:
 	if (sfd >= 0) {
