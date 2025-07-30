@@ -159,14 +159,25 @@ static int cam_media_init() {
 
 	// Set frame rate
 
+	// struct v4l2_fract fract = { .numerator = 1, .denominator = g_fps };
+	// struct v4l2_subdev_frame_interval ival = {
+	// 	.interval = fract,
+	// 	.pad = subdev_pad,
+	// };
+
+	// perror_cleanup(ioctl(sfd, VIDIOC_SUBDEV_S_FRAME_INTERVAL, &ival),
+	// 				"VIDIOC_SUBDEV_S_FRAME_INTERVAL");
+	// Set frame rate if supported (optional)
 	struct v4l2_fract fract = { .numerator = 1, .denominator = g_fps };
 	struct v4l2_subdev_frame_interval ival = {
 		.interval = fract,
 		.pad = subdev_pad,
 	};
+	
+	if (ioctl(sfd, VIDIOC_SUBDEV_S_FRAME_INTERVAL, &ival) == -1) {
+		dlog("Warning: VIDIOC_SUBDEV_S_FRAME_INTERVAL not supported, skipping.\n");
+	}
 
-	perror_cleanup(ioctl(sfd, VIDIOC_SUBDEV_S_FRAME_INTERVAL, &ival),
-					"VIDIOC_SUBDEV_S_FRAME_INTERVAL");
 	
 	dlog("Info: %s: frame rate: requested for %d; image sensor accepted %d\n",
 		G_SUBDEV_ENTITY_NAME, g_fps, ival.interval.denominator);
